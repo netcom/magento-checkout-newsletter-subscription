@@ -1,0 +1,15 @@
+{
+    "name": "quafzi/magento-checkout-newsletter-subscription",
+    "license": "OSL-3.0",
+    "type": "magento-module",
+    "description": "Subscribe users to newsletter in checkout",
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    },
+    "authors":[
+        {
+            "name":"Thomas Birke",
+            "email":"magento@netextreme.de"
+        }
+    ]
+}
