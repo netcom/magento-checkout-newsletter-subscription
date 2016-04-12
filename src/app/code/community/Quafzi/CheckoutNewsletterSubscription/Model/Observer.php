@@ -19,7 +19,9 @@ class Quafzi_CheckoutNewsletterSubscription_Model_Observer
     {
         $quote = $observer->getEvent()->getQuote();
         if ($quote->getBillingAddress() && Mage::app()->getRequest()->getParam('is_subscribed', false)) {
-            $status = Mage::getModel('newsletter/subscriber')->subscribe($quote->getBillingAddress()->getEmail());
+            $status = Mage::getModel('newsletter/subscriber')
+                ->setImportMode(true)
+                ->subscribe($quote->getBillingAddress()->getEmail());
         }
     }
 
