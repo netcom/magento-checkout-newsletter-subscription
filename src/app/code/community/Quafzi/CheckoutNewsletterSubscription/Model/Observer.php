@@ -4,7 +4,9 @@ class Quafzi_CheckoutNewsletterSubscription_Model_Observer
 
     public function addCheckbox ($observer)
     {
-        if ($observer->getBlock() instanceof Mage_Checkout_Block_Agreements) {
+        if ($observer->getBlock() instanceof Mage_Checkout_Block_Agreements
+            && false === (boolean)(int)Mage::getStoreConfig('advanced/modules_disable_output/Quafzi_CheckoutNewsletterSubscription')
+        ) {
             $html = $observer->getTransport()->getHtml();
             $checkboxHtml = '<li><p class="agree">'
                 . '<input id="subscribe_newsletter" name="is_subscribed" checked="checked" value="1" class="checkbox" type="checkbox" />'
