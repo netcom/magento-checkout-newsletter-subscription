@@ -3,14 +3,18 @@ Quafzi CheckoutNewsletterSubscription
 
 Allow to subscribe customers to newsletter at the end of checkout.
 
+Fork from
+-----
+quafzi/magento-checkout-newsletter-subscription
+
 Facts
 -----
 - version: 1.0.0
-- Composer package name: ``quafzi/magento-checkout-newsletter-subscription``
+- Composer package name: ``netcom/magento-checkout-newsletter-subscription``
 
 Description
 -----------
-Allow customer to subscribe to newsletter in checkout.
+Allow customer to subscribe to AW Advanced Newsletter in checkout.
 
 Compatibility
 -------------
