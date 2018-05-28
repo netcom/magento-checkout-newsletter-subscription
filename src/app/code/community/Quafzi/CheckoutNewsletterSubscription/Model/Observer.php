@@ -21,20 +21,21 @@ class Quafzi_CheckoutNewsletterSubscription_Model_Observer
     {
         $quote = $observer->getEvent()->getQuote();
         if ($quote->getBillingAddress() && Mage::app()->getRequest()->getParam('is_subscribed', false)) {
-			//Mage::log($quote->getBillingAddress()->getEmail(), null, 'checkout_subscribe.log');
-            //works with aw advancednewsletter
-			$subscriber = Mage::getModel('advancednewsletter/subscriber')/*->loadByEmail($_POST['email'])*/;
-			try{
-				$subscriber->subscribe($quote->getBillingAddress()->getEmail(), array('default'),array());
-			} catch( Exception $e)
-			{
-				Mage::logException($e);
-			}
-			/*
-            $status = Mage::getModel('newsletter/subscriber')
-                ->setImportMode(true)
-                ->subscribe($quote->getBillingAddress()->getEmail());
-			*/
+		//Mage::log($quote->getBillingAddress()->getEmail(), null, 'checkout_subscribe.log');
+		//works with aw advancednewsletter
+		$subscriber = Mage::getModel('advancednewsletter/subscriber');
+		try{
+			$subscriber->subscribe($quote->getBillingAddress()->getEmail(), array('default'),array());
+		} catch( Exception $e)
+		{
+			Mage::logException($e);
+		}
+		/*
+		//This will subscribe you to regular magento newsletter.
+		$status = Mage::getModel('newsletter/subscriber')
+		->setImportMode(true)
+		->subscribe($quote->getBillingAddress()->getEmail());
+		*/
         }
     }
 
